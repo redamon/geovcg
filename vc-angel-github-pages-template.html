@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Northstar Ventures — Traditional VC Fund Template</title>
+  <meta name="description" content="Traditional venture capital fund one-page template for GitHub Pages." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root, [data-theme="light"] {
+      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.65vw, 1.375rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.1vw, 2rem);
+      --text-2xl: clamp(2.1rem, 1.4rem + 2vw, 3.25rem);
+      --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem;
+      --space-5: 1.25rem; --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem;
+      --space-12: 3rem; --space-16: 4rem; --space-20: 5rem; --space-24: 6rem;
+      --color-bg: #f6f4ef; --color-surface: #faf9f6; --color-surface-2: #f2efe8;
+      --color-surface-offset: #ebe7df; --color-border: #d5d0c6; --color-divider: #ddd8cf;
+      --color-text: #211f1a; --color-text-muted: #646057; --color-text-faint: #959086;
+      --color-text-inverse: #f8f6f1; --color-primary: #1f4b57; --color-primary-hover: #183a44;
+      --color-accent-soft: #dce5e7; --radius-sm: 0.375rem; --radius-md: 0.5rem; --radius-lg: 0.875rem; --radius-xl: 1.1rem;
+      --shadow-sm: 0 1px 2px rgba(24,22,18,.05); --shadow-md: 0 10px 28px rgba(24,22,18,.08);
+      --content: 1160px; --font-display: 'Source Serif 4', Georgia, serif; --font-body: 'Inter', Arial, sans-serif;
+    }
+    [data-theme="dark"] {
+      --color-bg: #171614; --color-surface: #1d1c1a; --color-surface-2: #23211f;
+      --color-surface-offset: #2a2825; --color-border: #3d3a36; --color-divider: #2c2a27;
+      --color-text: #d3d0ca; --color-text-muted: #aaa59d; --color-text-faint: #7e7971;
+      --color-text-inverse: #171614; --color-primary: #7aa4ad; --color-primary-hover: #5f8f99; --color-accent-soft: #27353a;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,.18); --shadow-md: 0 12px 32px rgba(0,0,0,.28);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; min-height: 100dvh; font-family: var(--font-body); font-size: var(--text-base); line-height: 1.65; color: var(--color-text); background: var(--color-bg); }
+    img, svg { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.92em; }
+    :focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; border-radius: var(--radius-sm); }
+    .skip-link { position: absolute; left: var(--space-4); top: -40px; background: var(--color-primary); color: var(--color-text-inverse); padding: var(--space-2) var(--space-3); border-radius: var(--radius-sm); z-index: 1000; }
+    .skip-link:focus { top: var(--space-4); }
+    .container { width: min(calc(100% - 2rem), var(--content)); margin: 0 auto; }
+    .site-header { position: sticky; top: 0; z-index: 100; background: color-mix(in srgb, var(--color-bg) 88%, transparent); backdrop-filter: blur(12px); border-bottom: 1px solid var(--color-divider); }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); }
+    .brand { display: inline-flex; align-items: center; gap: var(--space-3); font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; font-size: var(--text-sm); }
+    .brand-mark { width: 34px; height: 34px; color: var(--color-primary); }
+    .nav-links { display: flex; gap: var(--space-5); align-items: center; }
+    .nav-links a { font-size: var(--text-sm); color: var(--color-text-muted); }
+    .nav-links a:hover { color: var(--color-text); }
+    .theme-toggle, .menu-toggle { min-width: 44px; min-height: 44px; display: inline-grid; place-items: center; border: 1px solid var(--color-border); background: var(--color-surface); color: var(--color-text); border-radius: 9999px; }
+    .menu-toggle { display: none; }
+    .hero { padding: clamp(4.5rem, 10vw, 8rem) 0 var(--space-20); }
+    .eyebrow { display: inline-block; font-size: var(--text-xs); letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text-faint); }
+    .hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: var(--space-12); align-items: end; margin-top: var(--space-5); }
+    h1, h2, h3 { margin: 0; line-height: 1.1; }
+    h1, h2 { font-family: var(--font-display); letter-spacing: -0.025em; }
+    h1 { font-size: var(--text-2xl); max-width: 13ch; }
+    h2 { font-size: var(--text-xl); }
+    h3 { font-size: var(--text-lg); }
+    p { margin: 0; max-width: 72ch; }
+    .lede { margin-top: var(--space-5); color: var(--color-text-muted); max-width: 58ch; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-6); }
+    .btn { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; padding: 0.8rem 1.15rem; border-radius: 9999px; border: 1px solid var(--color-border); font-size: var(--text-sm); font-weight: 600; transition: background .18s ease, color .18s ease, border-color .18s ease; }
+    .btn-primary { background: var(--color-primary); color: var(--color-text-inverse); border-color: transparent; }
+    .btn-primary:hover { background: var(--color-primary-hover); }
+    .btn-secondary { background: transparent; }
+    .btn-secondary:hover { background: var(--color-surface); }
+    .hero-panel, .card, .process-step, .stat-block { background: var(--color-surface); border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent); border-radius: var(--radius-xl); }
+    .hero-panel { padding: var(--space-6); box-shadow: var(--shadow-sm); }
+    .panel-label { font-size: var(--text-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-faint); }
+    .fund-facts { display: grid; gap: var(--space-4); margin-top: var(--space-5); }
+    .fact { display: grid; grid-template-columns: 1fr auto; gap: var(--space-3); padding-bottom: var(--space-4); border-bottom: 1px solid var(--color-divider); }
+    .fact:last-child { border-bottom: 0; padding-bottom: 0; }
+    .fact dt { color: var(--color-text-muted); }
+    .fact dd { margin: 0; font-weight: 600; }
+    section { padding: var(--space-16) 0; border-top: 1px solid var(--color-divider); }
+    .section-head { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: var(--space-8); margin-bottom: var(--space-8); align-items: start; }
+    .kicker { font-size: var(--text-xs); letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text-faint); margin-bottom: var(--space-3); }
+    .muted { color: var(--color-text-muted); }
+    .thesis-grid, .portfolio-grid, .team-grid, .stats-grid, .process-grid { display: grid; gap: var(--space-4); }
+    .thesis-grid, .portfolio-grid, .team-grid { grid-template-columns: repeat(3, 1fr); }
+    .stats-grid { grid-template-columns: repeat(4, 1fr); }
+    .process-grid { grid-template-columns: repeat(4, 1fr); }
+    .card { padding: var(--space-5); }
+    .card p { margin-top: var(--space-3); color: var(--color-text-muted); }
+    .tag { display: inline-block; margin-top: var(--space-4); padding: .34rem .65rem; border-radius: 9999px; background: var(--color-accent-soft); color: var(--color-primary); font-size: var(--text-xs); font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
+    .stat-block { padding: var(--space-5); }
+    .stat-value { font-family: var(--font-display); font-size: var(--text-xl); }
+    .stat-label { margin-top: var(--space-2); color: var(--color-text-muted); font-size: var(--text-sm); }
+    .process-step { padding: var(--space-5); }
+    .process-step strong { display: block; font-size: var(--text-xs); letter-spacing: .08em; text-transform: uppercase; color: var(--color-text-faint); margin-bottom: var(--space-3); }
+    .quote-band { padding: var(--space-8); background: var(--color-surface-2); border: 1px solid var(--color-border); border-radius: var(--radius-xl); }
+    .quote-band p { font-family: var(--font-display); font-size: var(--text-xl); max-width: 28ch; }
+    .quote-band small { display: block; margin-top: var(--space-4); color: var(--color-text-muted); }
+    .contact-panel { display: grid; grid-template-columns: 1fr auto; gap: var(--space-8); align-items: center; padding: var(--space-6); background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-xl); box-shadow: var(--shadow-md); }
+    .footer { padding: var(--space-8) 0 var(--space-12); color: var(--color-text-muted); font-size: var(--text-sm); }
+    @media (max-width: 980px) {
+      .hero-grid, .section-head, .contact-panel, .thesis-grid, .portfolio-grid, .team-grid, .stats-grid, .process-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; position: absolute; left: 1rem; right: 1rem; top: 78px; padding: var(--space-4); background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); }
+      .nav-links.open { display: grid; gap: var(--space-3); }
+      .menu-toggle { display: inline-grid; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Northstar Ventures home">
+        <svg class="brand-mark" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="7" y="7" width="34" height="34" rx="8" stroke="currentColor" stroke-width="2"></rect>
+          <path d="M16 31L24 15L32 31" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+          <path d="M19.5 24H28.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"></path>
+        </svg>
+        <span>Northstar Ventures</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <div class="nav-links" id="nav-links">
+          <a href="#thesis">Strategy</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#team">Team</a>
+          <a href="#process">Process</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+      <div style="display:flex; gap:.5rem; align-items:center;">
+        <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">☰</button>
+        <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="content">
+    <section class="hero" id="top">
+      <div class="container">
+        <span class="eyebrow">Institutional venture capital · Early stage · Sector focused</span>
+        <div class="hero-grid">
+          <div>
+            <h1>Partnering with category-defining companies from the earliest stages.</h1>
+            <p class="lede">This version is designed to feel more like a traditional venture capital fund: more institutional, more thesis-driven, and more explicit about stage, check size, portfolio, team, and process.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#contact">Submit a company</a>
+              <a class="btn btn-secondary" href="#portfolio">View portfolio</a>
+            </div>
+          </div>
+          <aside class="hero-panel" aria-label="Fund overview">
+            <div class="panel-label">Fund overview</div>
+            <dl class="fund-facts">
+              <div class="fact"><dt>Investment stage</dt><dd>Seed to Series A</dd></div>
+              <div class="fact"><dt>Initial check size</dt><dd>$500k to $3M</dd></div>
+              <div class="fact"><dt>Focus sectors</dt><dd>Enterprise software, AI, fintech</dd></div>
+              <div class="fact"><dt>Geographic scope</dt><dd>North America and Europe</dd></div>
+            </dl>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="stats-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Firm snapshot</div>
+            <h2 id="stats-title">Lead with clarity and institutional credibility.</h2>
+          </div>
+          <p class="muted">Strong VC websites tend to use clear hierarchy, whitespace, and flow rather than visual clutter, and they work best when they communicate who the firm wants to partner with and let the portfolio reinforce that position. Specific investment criteria and a concise point of view help qualify inbound opportunities. [web:24][web:46][web:50]</p>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-block"><div class="stat-value">2016</div><div class="stat-label">Founded</div></div>
+          <div class="stat-block"><div class="stat-value">$350M</div><div class="stat-label">Assets under management</div></div>
+          <div class="stat-block"><div class="stat-value">45+</div><div class="stat-label">Portfolio companies</div></div>
+          <div class="stat-block"><div class="stat-value">3</div><div class="stat-label">Core sectors</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="thesis">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Investment strategy</div>
+            <h2>Define what you pursue, and what you do not.</h2>
+          </div>
+          <p class="muted">Recent guidance for VC firm websites consistently emphasizes stating the firm’s “why,” target sectors, market position, stages, check sizes, and geographic preferences so the site acts as a filter for better-qualified deal flow. [web:46][web:50]</p>
+        </div>
+        <div class="thesis-grid">
+          <article class="card">
+            <h3>Sector thesis</h3>
+            <p>We invest in software markets where technical differentiation and distribution discipline can create durable category leaders.</p>
+            <span class="tag">Replace with your thesis</span>
+          </article>
+          <article class="card">
+            <h3>Stage discipline</h3>
+            <p>We typically lead or co-lead seed rounds and continue supporting companies through Series A and beyond.</p>
+            <span class="tag">Clarify your stage</span>
+          </article>
+          <article class="card">
+            <h3>Firm advantage</h3>
+            <p>Our model combines operator insight, customer access, and disciplined governance from company formation through scale.</p>
+            <span class="tag">State your edge</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Portfolio</div>
+            <h2>Let the portfolio do the talking.</h2>
+          </div>
+          <p class="muted">VC website guidance repeatedly recommends using portfolio companies as proof of judgment and fit, and showing outcomes or context rather than presenting a long, context-free wall of logos. [web:46][web:50]</p>
+        </div>
+        <div class="portfolio-grid">
+          <article class="card">
+            <h3>Ledger One</h3>
+            <p>Financial infrastructure software for mid-market treasury teams managing complex payment operations.</p>
+            <span class="tag">Fintech · Seed</span>
+          </article>
+          <article class="card">
+            <h3>Vector Systems</h3>
+            <p>Evaluation and observability tooling for enterprise AI deployments in regulated environments.</p>
+            <span class="tag">AI Infrastructure · Series A</span>
+          </article>
+          <article class="card">
+            <h3>Northline Health</h3>
+            <p>Workflow software that improves provider efficiency, reimbursement visibility, and patient throughput.</p>
+            <span class="tag">Healthcare IT · Seed</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="team">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Team</div>
+            <h2>Humanize the partnership.</h2>
+          </div>
+          <p class="muted">Founders choose people as much as firms, so effective VC sites explain each partner’s background, operating expertise, and the kinds of companies they are best suited to evaluate and support. [web:50]</p>
+        </div>
+        <div class="team-grid">
+          <article class="card">
+            <h3>Jane Smith</h3>
+            <p>Managing Partner. Former enterprise software operator with experience scaling product and go-to-market teams.</p>
+          </article>
+          <article class="card">
+            <h3>David Chen</h3>
+            <p>Partner. Focused on fintech and vertical software after a career in company formation and growth investing.</p>
+          </article>
+          <article class="card">
+            <h3>Elena Rossi</h3>
+            <p>Operating Partner. Works with portfolio companies on executive hiring, messaging, and enterprise sales readiness.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Founder process</div>
+            <h2>Explain what happens after a founder reaches out.</h2>
+          </div>
+          <p class="muted">Best-practice guidance for VC websites recommends making the investment process visible, including how founders should approach the firm, what the review timeline looks like, and what steps follow if there is interest. [web:50][web:48]</p>
+        </div>
+        <div class="process-grid">
+          <div class="process-step"><strong>01</strong><h3>Initial review</h3><p class="muted">We review all inbound submissions against stage, sector, and market criteria.</p></div>
+          <div class="process-step"><strong>02</strong><h3>First meeting</h3><p class="muted">Relevant opportunities move to a partner conversation focused on product, market, and team.</p></div>
+          <div class="process-step"><strong>03</strong><h3>Diligence</h3><p class="muted">We evaluate customer need, technical differentiation, and the company’s path to scale.</p></div>
+          <div class="process-step"><strong>04</strong><h3>Decision</h3><p class="muted">Founders receive a timely response with a clear next step, whether or not we proceed.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="quote-band">
+          <p>Discipline in selection, conviction in partnership, and long-term alignment with founders.</p>
+          <small>Use this band for a short institutional statement, LP-style credibility line, or founder testimonial.</small>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-panel">
+          <div>
+            <div class="kicker">Contact</div>
+            <h2>Provide a clear path for inbound opportunities.</h2>
+            <p class="muted">VC website guidance recommends a short, low-friction submission path, specific response expectations, and clear instructions on how founders should make first contact. [web:50]</p>
+          </div>
+          <div style="display:flex; flex-wrap:wrap; gap:.75rem;">
+            <a class="btn btn-primary" href="mailto:submissions@northstarventures.com">Submit by email</a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">Built as a static one-page template for GitHub Pages. Rename this file to <code>index.html</code>, place it in your repository root, and publish from the selected Pages branch. GitHub Pages supports publishing static sites with a main entry file such as <code>index.html</code>. [web:1][web:4]</div>
+  </footer>
+
+  <script>
+    (function () {
+      const root = document.documentElement;
+      const toggle = document.querySelector('[data-theme-toggle]');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      let theme = prefersDark ? 'dark' : 'light';
+      root.setAttribute('data-theme', theme);
+
+      function icon(mode) {
+        return mode === 'dark'
+          ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+          : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+      }
+      toggle.innerHTML = icon(theme);
+      toggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+      toggle.addEventListener('click', function () {
+        theme = theme === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', theme);
+        toggle.innerHTML = icon(theme);
+        toggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+      });
+
+      const menuButton = document.querySelector('.menu-toggle');
+      const nav = document.getElementById('nav-links');
+      menuButton.addEventListener('click', function () {
+        const isOpen = nav.classList.toggle('open');
+        menuButton.setAttribute('aria-expanded', String(isOpen));
+      });
+    })();
+  </script>
+</body>
+</html>
