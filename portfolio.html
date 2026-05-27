@@ -134,10 +134,11 @@
       gap: var(--space-4);
     }
     .logo-tile {
-      min-height: 220px;              /* larger tile to fit triple-size logos */
-      display: grid;
-      place-items: center;
-      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-8) var(--space-6);
       background: var(--color-surface);
       border-radius: var(--radius-xl);
       border: 1px solid var(--color-border);
@@ -145,12 +146,16 @@
       text-align: center;
     }
     .logo-tile a {
-      display: inline-block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
     }
     .logo-tile img {
-      width: 300px;                   /* triple the previous 72px */
-      height: auto;                   /*It was 216px */
-      object-fit: contain;            /* preserve aspect ratio inside the box */
+      width: 100%;
+      max-width: 200px;
+      height: 120px;
+      object-fit: contain;
     }
     .logo-caption {
       margin-top: var(--space-3);
@@ -213,56 +218,56 @@
         <div class="logo-grid" aria-label="Portfolio company logos">
           <figure class="logo-tile">
             <a href="https://www.spacex.com/" target="_blank" rel="noopener noreferrer">
-              <img src="assets/logos/company-1.png" alt="Company 1 logo" width="216" height="216" loading="lazy">
+              <img src="assets/logos/company-1.png" alt="Company 1 logo" width="200" height="120" loading="lazy">
             </a>
-            <figcaption class="logo-caption">Company 1</figcaption>
+            <figcaption class="logo-caption">SpaceX</figcaption>
           </figure>
 
           <figure class="logo-tile">
             <a href="https://www.anthropic.com/" target="_blank" rel="noopener noreferrer">
-              <img src="assets/logos/company-2.png" alt="Company 2 logo" width="216" height="216" loading="lazy">
+              <img src="assets/logos/company-2.png" alt="Company 2 logo" width="200" height="120" loading="lazy">
             </a>
-            <figcaption class="logo-caption">Company 2</figcaption>
+            <figcaption class="logo-caption">Anthropic</figcaption>
           </figure>
 
           <figure class="logo-tile">
             <a href="https://www.cerebras.ai/" target="_blank" rel="noopener noreferrer">
-              <img src="assets/logos/company-3.png" alt="Company 3 logo" width="216" height="216" loading="lazy">
+              <img src="assets/logos/company-3.png" alt="Company 3 logo" width="200" height="120" loading="lazy">
             </a>
             <figcaption class="logo-caption">Company 3</figcaption>
           </figure>
 
           <figure class="logo-tile">
             <a href="https://x.ai/" target="_blank" rel="noopener noreferrer">
-              <img src="assets/logos/company-4.png" alt="Company 4 logo" width="216" height="216" loading="lazy">
+              <img src="assets/logos/company-4.png" alt="Company 4 logo" width="200" height="120" loading="lazy">
             </a>
             <figcaption class="logo-caption">Company 4</figcaption>
           </figure>
 
           <figure class="logo-tile">
             <a href="https://www.perplexity.ai/" target="_blank" rel="noopener noreferrer">
-              <img src="assets/logos/company-5.png" alt="Company 5 logo" width="216" height="216" loading="lazy">
+              <img src="assets/logos/company-5.png" alt="Company 5 logo" width="200" height="120" loading="lazy">
             </a>
             <figcaption class="logo-caption">Company 5</figcaption>
           </figure>
 
           <figure class="logo-tile">
             <a href="https://lambda.ai/" target="_blank" rel="noopener noreferrer">
-              <img src="assets/logos/company-6.png" alt="Company 6 logo" width="216" height="216" loading="lazy">
+              <img src="assets/logos/company-6.png" alt="Company 6 logo" width="200" height="120" loading="lazy">
             </a>
             <figcaption class="logo-caption">Company 6</figcaption>
           </figure>
 
           <figure class="logo-tile">
             <a href="https://ramp.com/" target="_blank" rel="noopener noreferrer">
-              <img src="assets/logos/company-7.png" alt="Company 7 logo" width="216" height="216" loading="lazy">
+              <img src="assets/logos/company-7.png" alt="Company 7 logo" width="200" height="120" loading="lazy">
             </a>
             <figcaption class="logo-caption">Company 7</figcaption>
           </figure>
 
           <figure class="logo-tile">
             <a href="https://mercury.com/" target="_blank" rel="noopener noreferrer">
-              <img src="assets/logos/company-8.png" alt="Company 8 logo" width="216" height="216" loading="lazy">
+              <img src="assets/logos/company-8.png" alt="Company 8 logo" width="200" height="120" loading="lazy">
             </a>
             <figcaption class="logo-caption">Company 8</figcaption>
           </figure>
